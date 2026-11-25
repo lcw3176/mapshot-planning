@@ -11,8 +11,10 @@
 mapshot-planning/
 ├── README.md                 이 파일. 기획 목록도 여기서 관리
 ├── CLAUDE.md                 사람·AI가 이 레포에서 일할 때의 규칙
-├── rules/                    두 레포 공통 규칙
-│   └── common-rules.md
+├── rules/                    규칙
+│   ├── common-rules.md       두 레포 공통 규칙
+│   ├── api-code.md           Mapshot-API 코드 규약
+│   └── front-code.md         Mapshot-Front 코드 규약
 ├── architecture/             시스템 구성 소개
 │   └── overview.md
 ├── decisions/                결정 기록. 결정 하나 = 파일 하나
