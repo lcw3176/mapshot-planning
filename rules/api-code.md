@@ -81,7 +81,7 @@ com.mapshot.api
 - 레이어별 방식
   - domain: 스프링 없이 순수 단위 테스트. `// given`, `// when`, `// then` 으로 나눈다.
   - application: `@SpringBootTest` 로 테스트용 H2 에 데이터를 넣어 확인한다. `@BeforeEach` 에서 넣고 `@AfterEach` 에서 `deleteAll()`.
-  - presentation: `@SpringBootTest @AutoConfigureMockMvc @AutoConfigureRestDocs` + MockMvc. Slack 은 `SlackMockExtension` 을 상속해 막는다.
-    REST Docs 스니펫(`document(...)`)을 같이 남긴다(`docs/api.adoc`).
+  - presentation: `@SpringBootTest @AutoConfigureMockMvc` + MockMvc. Slack 은 `SlackMockExtension` 을 상속해 막는다.
+    API 문서는 공개하지 않는다. 새 테스트에 REST Docs(`document(...)`)를 붙이지 않는다(기존 4개 테스트에 남은 건 정리 대상).
 - 외부 API 는 실제로 부르지 않는다. 응답 JSON 파싱은 저장해둔 예시 JSON 으로 테스트한다.
 - 실행: `./gradlew test`. JDK 17 로 돌린다(Gradle 7.6 이라 JDK 21 기본이면 빌드 스크립트 단계에서 실패한다).
