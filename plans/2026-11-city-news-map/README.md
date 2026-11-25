@@ -1,8 +1,8 @@
 # 도시소식 지도 레이어
 
-> 상태: 구현 완료, 리뷰 대기 · 시작: 2026-11-25 · 관련 레포: API, Front
+> 상태: 1단계 구현 완료, 2단계(보도자료 풀이 글) 구현 중 · 시작: 2026-11-25 · 관련 레포: API, Front
 > 브랜치: `Mapshot-API:feat/city-news-map`, `Mapshot-Front:feat/city-news-map`
-> 같이 읽기: [flow.md](flow.md)(작동 플로우), [eval/](eval/)(지역 추출 평가), `decisions/2026-11-25-location-rule-scope.md`, `decisions/2026-11-25-remove-parcel.md`
+> 같이 읽기: [explainer.md](explainer.md)(2단계: 보도자료 풀이 글), [flow.md](flow.md)(작동 플로우), [eval/](eval/)(지역 추출 평가), `decisions/2026-11-25-location-rule-scope.md`, `decisions/2026-11-25-remove-parcel.md`
 
 ## 왜 하나
 
@@ -17,6 +17,7 @@
 - 왼쪽 패널은 소식 목록이 된다. 기본은 '지금 지도에 보이는 지역'의 소식, 라벨을 누르면 그 지역 소식만.
 - 항목을 펼치면 국토부 부제(요약 불릿), 원문 링크, '지도에서 보기'.
 - 특정 지역이 없는 소식(제도, 통계, 전국 정책)은 지도 대신 패널 아래 '전국 단위 소식'으로.
+  → 2단계에서 변경: 지도 패널에서 빼고 도시뉴스 '보도자료 풀이'에서만 보여준다([explainer.md](explainer.md)).
 
 ## 범위
 

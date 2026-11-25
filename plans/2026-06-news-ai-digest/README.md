@@ -7,6 +7,8 @@
 - [backend.md](backend.md): 수집·요약 파이프라인, 응답 스키마, LLM 호출 설계 (원래 `Mapshot-API:docs/news-ai-digest-feature.md`)
 - [frontend.md](frontend.md): 브리핑 읽기 화면, 렌더링 규칙 (원래 `Mapshot-API:docs/frontend-news-digest.md`)
 
+> 2026-11-25: 도시뉴스가 두 갈래가 된다. 이 기획은 '브리핑'(하루 1편) 갈래다. 보도자료 1건 = 글 1편인 '보도자료 풀이'는 `plans/2026-11-city-news-map/explainer.md`.
+
 ## 알려진 문제 (2026-11-25 점검)
 
 브리핑 목록과 11/24 브리핑 한 편을 직접 읽고 찾은 것. 품질 평가(eval)를 붙일 때 기준점으로 쓴다.
