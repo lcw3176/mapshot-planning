@@ -56,8 +56,7 @@ com.mapshot.api
   - 새 실패 상황이면 `infra/exception/status/ErrorCode` 에 HTTP 상태와 한국어 메시지를 같이 추가한다.
   - 조회 실패는 `repository.findById(id).orElseThrow(() -> new ApiException(ErrorCode.NO_SUCH_XXX))` 형태로 쓴다.
 - 외부 API 호출은 `ApiHandler.handle(() -> ...)` 로 감싼다. 실패하면 `ErrorCode.EXTERNAL_API_FAILED` 로 바뀐다.
-  - 어느 외부 서비스·단계에서 실패했는지 응답에 남겨야 하면 `ExternalServiceException(provider, operation, status)` 를 쓴다.
-    요청 URL 과 인증키는 예외에 담지 않는다.
+  - 외부 실패를 로그에 남길 때 요청 URL 과 인증키는 넣지 않는다.
 - 예외를 HTTP 응답으로 바꾸는 일은 `GlobalExceptionHandler` 한 곳에서만 한다. 컨트롤러에서 try/catch 로 응답을 만들지 않는다.
   - 처리하지 못한 예외는 거기서 로그 + Slack + Sentry 로 보낸다.
 
