@@ -75,7 +75,6 @@
 ## 관련 서비스
 
 - `blog.kmapshot.com`: 운영 이슈 기록 블로그
-- `docs.kmapshot.com`: API 문서(`Mapshot-API:docs/api.adoc`)
 
 ## 데이터 흐름 예시
 

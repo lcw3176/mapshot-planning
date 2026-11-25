@@ -14,6 +14,7 @@
 - 옮긴 것: `Mapshot-API:docs/news-ai-digest-feature.md`, `docs/frontend-news-digest.md` → `plans/2026-06-news-ai-digest/`,
   `docs/parcel-*.md` → `plans/archive/2026-parcel-info/`, 로컬 `DECISIONS.md` → `decisions/`.
 - `Mapshot-API:docs/api.adoc` 은 API 문서 빌드에 쓰여서 그대로 둔다.
+  → 번복(2026-11-25, 비공개 저장소의 API 문서를 외부에 공개할 이유가 없어 docs.kmapshot.com 을 닫고 `docs/` 폴더째 삭제. Mapshot-API PR #138)
 
 ## 버린 선택지
 
