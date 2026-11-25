@@ -62,6 +62,7 @@ src/
 - 컴포넌트 전용 스타일은 `<style scoped>`.
 - 카카오맵 오버레이처럼 `#map` 안에 그려지는 요소는 scoped 가 닿지 않는다. `src/assets/css/map.css` 에 `.map_wrap #map ...` 접두로 쓴다.
 - `public/index.html` 의 전역 글자 크기 규칙 때문에 글자 크기가 상속되지 않는다. 글자 요소마다 크기를 직접 준다.
+  - 문장 안의 `a`·`em`·`strong`·`span` 은 `font-size: inherit` 로 주변 크기를 따르게 한다. 그냥 두면 주변보다 커져 줄이 어긋나고 글자가 겹쳐 보인다(사용법 페이지, 2026-11-25).
 - 색은 Vuetify 테마 색(`primary`, `success` 등, `main.js`)을 먼저 쓴다.
 
 ## 6. 설정과 외부 스크립트

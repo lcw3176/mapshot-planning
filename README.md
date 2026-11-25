@@ -32,7 +32,7 @@ mapshot-planning/
 
 | 기획 | 상태 | 레포 |
 |---|---|---|
-| [도시소식 지도 레이어](plans/2026-11-city-news-map/README.md) · [2단계 보도자료 풀이](plans/2026-11-city-news-map/explainer.md) | 1단계 완료, 2단계 구현 중 | API, Front |
+| [도시소식 지도 레이어](plans/2026-11-city-news-map/README.md) · [2단계 보도자료 풀이](plans/2026-11-city-news-map/explainer.md) | 운영 중, 풀이 글 품질 확인 대기 | API, Front |
 | [도시뉴스 AI 브리핑](plans/2026-06-news-ai-digest/README.md) | 운영 중 | API, Front |
 | [필지 정보 조회](plans/archive/2026-parcel-info/README.md) | 제거(2026-11) | API, Front |
 
@@ -40,6 +40,8 @@ mapshot-planning/
 
 | 날짜 | 결정 |
 |---|---|
+| 2026-11-25 | [지도 SDK 리소스는 공식 로더로만, 지도 이미지 저장을 지시하지 않는다](decisions/2026-11-25-map-sdk-resources.md) |
+| 2026-11-25 | [배포 중단은 이미지 먼저 받기로 줄이고, 무중단은 DB 이전 뒤에](decisions/2026-11-25-deploy-downtime.md) |
 | 2026-11-25 | [Grafana 관련 설정과 의존성을 API 에서 뺀다](decisions/2026-11-25-remove-grafana.md) |
 | 2026-11-25 | [점검 배너는 프론트 빌드 환경변수로 켠다](decisions/2026-11-25-maintenance-banner.md) |
 | 2026-11-25 | [위치정보 규칙은 '사용자 위치'에만 적용한다](decisions/2026-11-25-location-rule-scope.md) |

@@ -50,20 +50,21 @@
 - 주요 화면
   - 지도(`MapView`): 위치 검색 → 지도 클릭으로 캡처 범위 지정 → 템플릿(위성 이미지) 제작. 오른쪽에 반경·지도 종류·출력 회사 설정.
     - 도시소식 레이어: 왼쪽 패널 버튼으로 켠다. `plans/2026-11-city-news-map/`
-  - 도시뉴스(`/news`): LLM 이 매일 묶어 쓴 브리핑. `plans/2026-06-news-ai-digest/`
-  - 공지사항, 사용법, FAQ
+  - 도시뉴스(`/news`): 두 갈래. 브리핑(LLM 이 매일 묶어 쓴 글, `plans/2026-06-news-ai-digest/`)과 보도자료 풀이(국토부 보도자료 1건 = 글 1편, `plans/2026-11-city-news-map/explainer.md`). 10건씩 페이지로 본다(`?track=press&page=`).
+  - 공지사항, 사용법(시작하기·템플릿 만들기·부가 설정·캡처·저장·도시소식 지도·도시뉴스), FAQ
 - 상태: Pinia 스토어(`store/map.js`, `news.js`, `notice.js`, `pressMap.js` 등). 지도 설정 일부는 localStorage 에 저장.
 - 빌드 환경변수: `VUE_APP_API_URL`, 점검 배너(`VUE_APP_MAINTENANCE_*`, `decisions/2026-11-25-maintenance-banner.md`).
 
 ## Mapshot-API
 
 - Java 17, Spring Boot 3.2, Spring Data JPA, H2(파일). Docker 이미지로 배포(`docker-compose`).
-  - 배포 대상: GitHub Actions 워크플로 기준 OCI(SSH 배포) — 확인 필요(README 에는 AWS EC2 로 적혀 있음)
+  - 배포: master 푸시 → 이미지 빌드(Jib) → Docker Hub, 수동 `deploy-prod` 가 OCI 서버에서 `pull → up -d`(중단 단축, `decisions/2026-11-25-deploy-downtime.md`)
 - 패키지 구조: `presentation`(컨트롤러) / `application`(기능 서비스) / `domain`(엔티티·리포지토리) / `infra`(외부 클라이언트·설정·인증·로깅)
 - 주요 기능
   - 지도 템플릿 `/map/{naver|kakao|google|layer}`: 요청 → `RateLimitInterceptor`(bucket4j, `/map/**` 에만, IP 별이 아닌 전역 버킷 1개) → `MapTemplatesController` 가 Thymeleaf 템플릿을 렌더
-  - 도시뉴스: `/news/recent`, `/news/{id}`
-  - 도시소식 지도: `/news/map?days=`
+  - 도시뉴스: `/news/list?track=briefing|press&page=`(10건씩), `/news/{id}`(풀이 글이면 `explainer`·원 보도자료 정보 포함). `/news/recent` 는 구버전 호환
+  - 도시소식 지도: `/news/map?days=`(항목마다 풀이 글 번호 `postId`)
+  - 보도자료 수집(매시 정각): RSS → 상세·PDF 본문 → 지역 추출(LLM, 10건 묶음) → 풀이 글 작성(LLM, 한 건씩, 건당 최대 3회 시도)
   - 공지사항, 게시글
 - 외부 연동
   - Gemini(Google AI Studio) 직접 호출, 모델 페일오버(`client.gemini.models`)
